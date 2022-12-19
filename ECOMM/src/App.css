@@ -1,0 +1,12 @@
+/* GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap'); */
+
+/* The '*' selector selects all elements in an HTML file. I am declaring the margin, padding and box-sizing properties to get rid of default values throughout the doc. */
+* {
+    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
