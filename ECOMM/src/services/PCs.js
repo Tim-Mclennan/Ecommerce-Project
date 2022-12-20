@@ -1,6 +1,6 @@
 // In this file, you will create all the functions youll need in oredr to create, read, update and delete data from firestore. 
 
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, increment, updateDoc } from "firebase/firestore"; 
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, increment, updateDoc, setDoc } from "firebase/firestore"; 
 import { db } from "./Firestore.js";
 
 // Function that gets all PC information from Firestore database:
@@ -34,9 +34,15 @@ export const getAllPCs = async () => {
 
 // CART FUNCTIONS:
 // function belows adds a document to the 'Cart' collection from ProductPage.jsx:
-    export const addCart = async (data) => {
-        const collectionRef = collection(db, "Cart");
-        const newDoc = await addDoc(collectionRef, data);
+    // export const addCart = async (data) => {
+    //     const collectionRef = collection(db, "Cart");
+    //     const newDoc = await addDoc(collectionRef, data);
+    //     return newDoc;
+    // };
+
+    export const addCart = async (id, data) => {
+        const docRef = doc(db, "Cart", id);
+        const newDoc = await setDoc(docRef, data)
         return newDoc;
     };
 
@@ -55,12 +61,21 @@ export const getAllPCs = async () => {
 
         console.log(data);
         return data;
-    }
+    };
+
+// This function will remove a product from the Cart:
+export const deleteCartItem = async (id) => {
+    const docRef = doc(db, "Cart", id);
+    await deleteDoc(docRef);
+    console.log("Item was removed", id);
+};
 
 // This function will increment a products quantity when called upon: 
 
 
-// This function will increment a products quantity when called upon: 
+// This function will decrement a products quantity when called upon: 
+
+
 
 
 // This function will add a new document to the 'Purchased' collection when a user checks out:

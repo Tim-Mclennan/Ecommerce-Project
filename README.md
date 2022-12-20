@@ -16,15 +16,17 @@ The languages and techniques I have used in this project include:
 - CSS 
 - SCSS
 - Javascript 
+- React
+- Bootstrap
 
 
 ## Features
 
-- Search feature that allows end users to find a book using the search feature.
-- Utilises Fetch to display data from Google Books API.
-- Displays a modal when user clicks on Book.
-- Modular design, segregation of JS functions (Allows for easier reading, customising and Unit Testing).
-- Minimalist colour palette.
+- End user can browse and purchase a PC in an available colour.
+- PCs stored in Google Firestore (Database).
+
+- Minimalist colour palette that can be easily modified from a 'themes.scss' module.
+-
 
 
 ## Lessons Learned

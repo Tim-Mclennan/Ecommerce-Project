@@ -1,0 +1,16 @@
+@import "../../SCSS/themes.scss";
+
+.Payment {
+    width: 30%;
+    background-color: $bg-colour;
+    height: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px;
+
+    &_Header {
+        font-weight: 500;
+        font-size: 2rem;
+    }
+}
+

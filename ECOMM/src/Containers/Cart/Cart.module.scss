@@ -27,18 +27,11 @@
             align-items: flex-end;
             
             &_Para {
-                margin: 5px;
+                margin: 10px;
+                font-weight: 700;
             }
         }
     }
-
-    &_Payment {
-        width: 30%;
-        background-color: $bg-colour;
-        height: 80%;
-    }
-
-
 };
 
 #ProductDetails {

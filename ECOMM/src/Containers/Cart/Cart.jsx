@@ -3,20 +3,24 @@ import styles from "./Cart.module.scss";
 import { getCartData } from '../../services/PCs';
 import { useState } from 'react';
 import CartCard from '../../Components/CartCard/CartCard';
+import CartPayment from '../../Components/CartPayment/CartPayment';
 
 const Cart = ({}) => {
 
 // State containing Cart data:
 const [cart, setCart] = useState([]);
 
+const [removeItem, setRemoveItem] = useState({})
+
 // renders all PC data once page is rendered after initialising:
   useEffect(() => {
-    const wrapper = async () => {
+    const cartFunction = async () => {
       const cartData = await getCartData();
       setCart(cartData);
+      console.log("Useeffect was triggered");
     };
-    wrapper();
-  }, []);
+    cartFunction();
+  }, [removeItem]);
 
   console.log(cart);
 
@@ -36,14 +40,11 @@ const [cart, setCart] = useState([]);
             <div  className={styles.CartPage_Cart_Line}></div>
 
             {cart && cart.map((pc) => {
-              return (<CartCard className={styles.CartPage_Cart_Card} key={pc.id} pc={pc} />)
+              return (<CartCard className={styles.CartPage_Cart_Card} key={pc.id} pc={pc} cart={cart} setCart={setCart} removeItem={removeItem} setRemoveItem={setRemoveItem} />)
             })}
         </div>
 
-        <div className={styles.CartPage_Payment}>
-
-        </div>
-
+        <CartPayment />
       </div>
     </>
   )

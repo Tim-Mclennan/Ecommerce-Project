@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import ProductSpecs from '../../Components/ProductSpecs/ProductSpecs';
 import { addCart, getPcById } from '../../services/PCs';
 import styles from "./ProductPage.module.scss";
 
@@ -33,17 +34,18 @@ const ProductPage = () => {
         const { name, value } = event.target;
         //sets the cart state to contain all variables of the selected PC (from PCInfo state) and the new selected option:
         setAddToCart({...PCInfo, [name]: (name, value)});
+        console.log("this is the pc info: ", PCInfo);
      }
 
      // Function that will submit  the newly set 'cart' state as an object, while also deleting the 'Colours' array:
      const handleSubmit = async (event) => {
         event.preventDefault();
         delete addToCart['Colours'];
-        console.log(addToCart);
-        await addCart(addToCart);
+        await addCart(addToCart.id, addToCart);
+        console.log("this added to the cart without the colour key", addToCart);
+
      }  
 
-    
   return (
     <>
         <div className={styles.ProductPage}>
@@ -59,7 +61,7 @@ const ProductPage = () => {
                 <form className={styles.ProductPage_Info_Form} onSubmit={handleSubmit}>
                     <label  className={styles.ProductPage_Info_Label} for="colour">Select Colour: </label>
                     <select className={styles.ProductPage_Info_Colours} id="colour" name="colour" onChange={handleChange}>
-                        <option disabled>Select Colour:</option>
+                        <option selected hidden disabled>Select Colour:</option>
                         {PCInfo.Colours && PCInfo.Colours.map((colour, i) => {
                         return <option key={PCInfo.id} value={colour}>{PCInfo.Colours[colour, i]}</option>
                         })};
@@ -69,35 +71,7 @@ const ProductPage = () => {
 
             </div>
         </div>
-        <div className={styles.Specs}>
-            <h1 className={styles.Specs_Header}>Specifications</h1>
-            <table className={styles.Specs_Table}>
-                <tr>
-                    <td>Brand: </td>
-                    <td>{PCInfo.Brand}</td>
-                </tr>
-                <tr>
-                    <td>Model: </td>
-                    <td>{PCInfo.Model}</td>
-                </tr>
-                <tr>
-                    <td>CPU: </td>
-                    <td>{PCInfo.CPU}</td>
-                </tr>
-                <tr>
-                    <td>GPU: </td>
-                    <td>{PCInfo.GPU}</td>
-                </tr>
-                <tr>
-                    <td>RAM: </td>
-                    <td>{PCInfo.RAM}</td>
-                </tr>
-                <tr>
-                    <td>Storage Capacity: </td>
-                    <td>{PCInfo.Storage}</td>
-                </tr>
-            </table>
-        </div>
+        <ProductSpecs PCInfo={PCInfo} />
     </>
   )
 };
