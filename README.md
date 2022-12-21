@@ -9,6 +9,8 @@ I love solving problems and continuously teaching myself new concepts. I have ye
 
 # Ecommerce-Project
 
+![image](https://user-images.githubusercontent.com/102727510/208796555-159e57f4-7a0f-4397-bfd6-0057e9b9e7a1.png)
+
 The objective of creating this Ecommerce Project is to showcase some of the frontend skills I have learnt while attending Nology's software engineering program. 
 
 The languages and techniques I have used in this project include:
