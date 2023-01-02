@@ -6,13 +6,27 @@ import CartCard from '../../Components/CartCard/CartCard';
 import CartPayment from '../../Components/CartPayment/CartPayment';
 
 const Cart = ({}) => {
-
 // State containing Cart data:
 const [cart, setCart] = useState([]);
 
-const [removeItem, setRemoveItem] = useState({})
+// State that contains item to be removed from cart:
+const [removeItem, setRemoveItem] = useState({});
 
-// renders all PC data once page is rendered after initialising:
+// State that contains the total Item amount for entire cart:
+const [totalItems, setTotalItems] = useState(0);
+
+// const totalItemCount = productQuantity.reduce((acc, cur) => acc + cur, 0)
+
+// useEffect(() => {
+//     const updateCartTotal = () => {
+//       setTotalItems(totalItems += productQuantity);
+//     };
+//     updateCartTotal();
+// }, [productQuantity]);
+
+// console.log(cart);
+
+// renders all cart data when intialised and after product is removed:
   useEffect(() => {
     const cartFunction = async () => {
       const cartData = await getCartData();
@@ -22,7 +36,6 @@ const [removeItem, setRemoveItem] = useState({})
     cartFunction();
   }, [removeItem]);
 
-  console.log(cart);
 
   return (
     <>
@@ -40,11 +53,11 @@ const [removeItem, setRemoveItem] = useState({})
             <div  className={styles.CartPage_Cart_Line}></div>
 
             {cart && cart.map((pc) => {
-              return (<CartCard className={styles.CartPage_Cart_Card} key={pc.id} pc={pc} cart={cart} setCart={setCart} removeItem={removeItem} setRemoveItem={setRemoveItem} />)
+              return (<CartCard className={styles.CartPage_Cart_Card} key={pc.id} pc={pc} cart={cart} setCart={setCart} removeItem={removeItem} setRemoveItem={setRemoveItem} totalItems={totalItems} setTotalItems={setTotalItems} />)              
             })}
         </div>
 
-        <CartPayment />
+        <CartPayment totalItems={totalItems} setTotalItems={setTotalItems} />
       </div>
     </>
   )

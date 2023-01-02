@@ -41,9 +41,8 @@ const ProductPage = () => {
      const handleSubmit = async (event) => {
         event.preventDefault();
         delete addToCart['Colours'];
+        delete addToCart.Quantity;
         await addCart(addToCart.id, addToCart);
-        console.log("this added to the cart without the colour key", addToCart);
-
      }  
 
   return (
