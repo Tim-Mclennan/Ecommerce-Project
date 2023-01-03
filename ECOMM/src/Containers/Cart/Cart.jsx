@@ -15,6 +15,9 @@ const [removeItem, setRemoveItem] = useState({});
 // State that contains the total Item amount for entire cart:
 const [totalItems, setTotalItems] = useState(0);
 
+// State that contains the total price for entire cart:
+const [totalPrice, setTotalPrice] = useState(0);
+
 // const totalItemCount = productQuantity.reduce((acc, cur) => acc + cur, 0)
 
 // useEffect(() => {
@@ -53,11 +56,11 @@ const [totalItems, setTotalItems] = useState(0);
             <div  className={styles.CartPage_Cart_Line}></div>
 
             {cart && cart.map((pc) => {
-              return (<CartCard className={styles.CartPage_Cart_Card} key={pc.id} pc={pc} cart={cart} setCart={setCart} removeItem={removeItem} setRemoveItem={setRemoveItem} totalItems={totalItems} setTotalItems={setTotalItems} />)              
+              return (<CartCard className={styles.CartPage_Cart_Card} key={pc.id} pc={pc} cart={cart} setCart={setCart} removeItem={removeItem} setRemoveItem={setRemoveItem} totalItems={totalItems} setTotalItems={setTotalItems} totalPrice={totalPrice} setTotalPrice={setTotalPrice} />)              
             })}
         </div>
 
-        <CartPayment totalItems={totalItems} setTotalItems={setTotalItems} />
+        <CartPayment totalItems={totalItems} setTotalItems={setTotalItems} totalPrice={totalPrice} />
       </div>
     </>
   )

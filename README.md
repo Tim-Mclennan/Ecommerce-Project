@@ -1,4 +1,4 @@
-# Hi, I'm Tim! 👋
+## Hi, I'm Tim! 👋
 
 
 # Ecommerce-Project
@@ -38,7 +38,9 @@ Another lesson I learnt from this project was how Asynchronous functions work.
 
 - **What challenges did you face and how did you overcome them?**
 
-One of the major challenges I faced was iterating through and displaying multiple API data points to the HTML doc. 
+One of the major challenges I faced was iterating through and displaying multiple API data points to the HTML doc. More specifically, I had issues using the map method on the array of PC Colours. This was quite a learning curve for me as I was so accustomed with JavaScript. 
+
+The first challenge relevant to using the map method was remembering to add the 'key' prop to each index. The key is a crucial yet often underspoken prop which makes React's life much easier. React uses keys to easily identify different index items and differentiate between them. 
 
 ## Files Overview
 

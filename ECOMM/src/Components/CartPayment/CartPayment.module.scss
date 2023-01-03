@@ -12,5 +12,17 @@
         font-weight: 500;
         font-size: 2rem;
     }
+
+    &_OrderBtn {
+        background-color: $main-colour;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 3px;
+
+        &:hover {
+            background-color: $header-link-colour;
+            transition: 0.3s ease-in-out;
+        }
+    }
 }
 

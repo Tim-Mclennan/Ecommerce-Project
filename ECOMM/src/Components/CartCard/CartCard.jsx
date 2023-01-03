@@ -3,15 +3,16 @@ import { useState, useEffect } from 'react';
 import { deleteCartItem } from '../../services/PCs';
 import styles from "./CartCard.module.scss";
 
-const CartCard = ({ pc, removeItem, setRemoveItem, totalItems, setTotalItems }) => {
+const CartCard = ({ pc, removeItem, setRemoveItem, totalItems, setTotalItems, totalPrice, setTotalPrice }) => {
 
     // State that tracks the individual product quantity. I had to move the state inside this component, as it would end up changing the state for all the otehr cards aswell:
     const [productQuantity, setProductQuantity] = useState(0);
 
-    //useEffect hook that will keep track of additions to the subtotal:
+    //useEffect hook that will keep track of qty additions to the subtotal:
     useEffect(() => {
     const updateCartTotal = () => {
       setTotalItems(totalItems += productQuantity);
+      setTotalPrice(totalPrice += pc.price);
     };
     updateCartTotal();
 }, [productQuantity]);
