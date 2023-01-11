@@ -1,0 +1,18 @@
+.Carousel {
+
+   &_Item {
+        min-height: 600px;
+        height: 100vh;
+
+        &_Img {
+            width: 100%;
+        }
+
+        &_Caption {
+            background-color: rgba(0,0,0,0.4);
+            border-radius: 10px; 
+        }
+    } 
+}
+
+

@@ -1,0 +1,40 @@
+@import "../../SCSS/themes.scss";
+
+.Specs {
+    text-align: center;
+    color: $main-colour;
+    margin: 40px 0px;
+    
+    &_Header {
+        width: 50%;
+        text-align: center;
+        margin: 0px auto;
+        background-color: $main-colour;
+        color: white;
+        padding: 10px;
+        border-collapse: collapse;
+    }
+
+    &_Table {
+        width: 50%;
+        text-align: center;
+        margin: 0px auto 10px;
+        border: 4px solid $main-colour;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        border-collapse: collapse;
+
+        tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+        td {
+            padding: 20px;
+        }
+        td:nth-child(odd){
+            font-weight: 600;
+            border-right: 2px solid $main-colour;
+            width: 50%;
+        }
+        
+    }
+}

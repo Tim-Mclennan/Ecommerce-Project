@@ -1,0 +1,28 @@
+@import "../../SCSS/themes.scss";
+
+.Payment {
+    width: 30%;
+    background-color: $bg-colour;
+    height: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px;
+
+    &_Header {
+        font-weight: 500;
+        font-size: 2rem;
+    }
+
+    &_OrderBtn {
+        background-color: $main-colour;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 3px;
+
+        &:hover {
+            background-color: $header-link-colour;
+            transition: 0.3s ease-in-out;
+        }
+    }
+}
+
